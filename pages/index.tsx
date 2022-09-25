@@ -3,7 +3,7 @@ import type { NextPage } from "next";
 const Home: NextPage = () => {
   return (
     <>
-      <h1>Biblia Online</h1>
+      <h1 className="text-3xl font-bold underline">Biblia Online</h1>
     </>
   );
 };
