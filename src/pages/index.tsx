@@ -16,7 +16,6 @@ const Home: NextPage = ({ books }: any) => {
       <h2 className="text-2xl font-bold">Velho Testamento</h2>
       <ul>
         {books.map((book: Book) => {
-          console.log(book.testament);
           if (book.testament == "VT") {
             return (
               <li key={book.abbrev.pt}>
@@ -51,7 +50,6 @@ export async function getStaticProps() {
       return data.json();
     }
   );
-  console.log(books);
   return {
     props: {
       books,
