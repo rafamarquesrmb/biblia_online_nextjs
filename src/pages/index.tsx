@@ -19,7 +19,7 @@ const Home: NextPage = ({ books }: any) => {
           if (book.testament == "VT") {
             return (
               <li key={book.abbrev.pt}>
-                <Link href={`livro/${book.abbrev.pt}`}>{book.name}</Link>
+                <Link href={`/${book.abbrev.pt}`}>{book.name}</Link>
               </li>
             );
           }
@@ -32,7 +32,7 @@ const Home: NextPage = ({ books }: any) => {
           if (book.testament == "NT") {
             return (
               <li key={book.abbrev.pt}>
-                <Link href={`livro/${book.abbrev.pt}`}>{book.name}</Link>
+                <Link href={`/${book.abbrev.pt}`}>{book.name}</Link>
               </li>
             );
           }
