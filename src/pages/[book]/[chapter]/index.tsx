@@ -1,13 +1,14 @@
 import type { NextPage } from "next";
 import Link from "next/link";
 
-interface BooksParams {
+interface BookProps {
+  name: string;
+  author: string;
   abbrev: {
     pt: string;
   };
   chapters: number;
 }
-
 interface ChapterParams {
   params: {
     book: string;
@@ -18,58 +19,64 @@ interface VerseProps {
   number: number;
   text: string;
 }
-interface ChapterProps {
-  book: {
-    name: string;
-    author: string;
-    abbrev: {
-      pt: string;
-    };
-  };
-  verses: [];
+interface ChapterPageProps {
+  book: BookProps;
+  verses: Array<VerseProps>;
   chapter: {
     number: number;
     verses: number;
   };
 }
 
-interface BookProps {
-  abbrev: {
-    pt: string;
-  };
-  name: string;
-  author: string;
-  group: string;
-}
-interface ChapterInfoProps {
-  number: number;
-}
-interface ChapterPageProps {
-  book: BookProps;
-  chapterInfo: ChapterInfoProps;
-  verses: VerseProps;
-}
-const Capitulo: NextPage<ChapterPageProps> = ({
+const Chapter: NextPage<ChapterPageProps> = ({
   book,
-  chapterInfo,
   verses,
+  chapter,
 }: ChapterPageProps) => {
-  // console.log(chapterData);
+  console.log(book);
 
   return (
     <>
       <h1 className="text-3xl font-bold underline">Biblia Online</h1>
       <h2>
-        {book.name} - Capítulo {chapterInfo.number}
+        {book.name} - Capítulo {chapter.number}
       </h2>
+      {verses.map((verse) => {
+        return (
+          <div key={verse.number}>
+            <span>
+              <span className="text-bold">{verse.number}.</span> {verse.text}
+            </span>
+          </div>
+        );
+      })}
+      {chapter.number <= book.chapters && chapter.number > 1 ? (
+        <Link href={`/${book.abbrev.pt}/${chapter.number - 1}`}>Anterior</Link>
+      ) : null}
+      {chapter.number < book.chapters ? (
+        <Link href={`/${book.abbrev.pt}/${chapter.number + 1}`}>Próximo</Link>
+      ) : null}
     </>
   );
 };
 
-export default Capitulo;
+export default Chapter;
 
 export async function getStaticProps({ params }: ChapterParams) {
-  const chapterData: ChapterProps = await fetch(
+  const book: BookProps = await fetch(
+    `https://www.abibliadigital.com.br/api/books/${params.book}`,
+    {
+      method: "GET",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+        Authorization: "Bearer " + process.env.TOKEN_LOGIN_A_BIBLIA_DIGITAL_JWT,
+      },
+    }
+  ).then((data) => {
+    return data.json();
+  });
+  const chapterData: ChapterPageProps = await fetch(
     `https://www.abibliadigital.com.br/api/verses/nvi/${params.book}/${params.chapter}`,
     {
       method: "GET",
@@ -80,19 +87,18 @@ export async function getStaticProps({ params }: ChapterParams) {
       },
     }
   ).then((data) => data.json());
-
   return {
     props: {
-      book: chapterData.book,
-      chapterInfo: chapterData.chapter,
+      book: book,
       verses: chapterData.verses,
+      chapter: chapterData.chapter,
     },
   };
 }
+
 export async function getStaticPaths() {
   const paths: { params: { book: string; chapter: string } }[] = [];
-
-  const books: BooksParams[] = await fetch(
+  const books: BookProps[] = await fetch(
     "https://www.abibliadigital.com.br/api/books",
     {
       method: "GET",
@@ -105,7 +111,6 @@ export async function getStaticPaths() {
   ).then((data) => {
     return data.json();
   });
-
   books.map((book) => {
     for (let i = 1; i <= book.chapters; i++) {
       paths.push({

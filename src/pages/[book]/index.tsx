@@ -18,7 +18,7 @@ interface BookPageProps {
   book: BookProps;
 }
 
-const Livro: NextPage<BookPageProps> = ({ abbrev, book }) => {
+const Book: NextPage<BookPageProps> = ({ abbrev, book }) => {
   const chaptersList: number[] = [];
 
   for (let i = 1; i <= book.chapters; i++) {
@@ -48,7 +48,7 @@ const Livro: NextPage<BookPageProps> = ({ abbrev, book }) => {
   );
 };
 
-export default Livro;
+export default Book;
 
 export async function getStaticProps({ params }: any) {
   const book: BookProps = await fetch(
