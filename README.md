@@ -9,22 +9,21 @@ Desenvolvido por [Rafael Marques](github.com/rafamarquesrmb)
 
 ---
 ## Funcionalidades
-
+  - Ao acessar a pagina inicial, você pode selecionar um dos livros da Bíblia.
+  - Ao acessar o página de um Livro, será apresentado os capítulos desse livro.
+  - Ao acessar a página do capítulo, será apresentado informações sobre o capítulo, assim como os respectivos versos.
+  - Na página dos capítulos, fácil navegação para os capitulos anterior e próximo.
+  -
 
   TODO:
-  - Criar o template (Header e Footer)
-  - Criar a pagina HOME
-    - permitir selecionar:
-      - livros
-      - capitulos
-      - versiculos
-    - consumir os dados acima da API
-  - Criar as paginas de leitura dos capitulos
-    - consumir os dados dos versos da API
-    - apresentar cada verso (com seu indice/numero)
-    - possibilitar navegar diretamente para o próximo capitulo
-    - Caso seja o ultimo capitulo, possibilitar navegar para o próximo livro
+  - Criar a UI das páginas
+    - Responsivo
+    - Tailwind
+    - Minimalista com boa legibilidade
+    - Criar logo?
+    - Usar imagens?
   - As paginas devem conter SEO e serem Indexadas, SSG
+  - Pensar sobre acessibilidade
   - Otimização de performance
   - Criar uma página de Sobre
   - FUNCIONALIDADES EXTRAS:
@@ -59,7 +58,6 @@ Agora basta acessar no seu navegador http://localhost:3000 ou através da porta 
 - Next
 - Typescript
 - TailwindCSS
-- Axios
 
 
 ---

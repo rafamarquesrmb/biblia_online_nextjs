@@ -33,8 +33,6 @@ const Chapter: NextPage<ChapterPageProps> = ({
   verses,
   chapter,
 }: ChapterPageProps) => {
-  console.log(book);
-
   return (
     <>
       <h1 className="text-3xl font-bold underline">Biblia Online</h1>
