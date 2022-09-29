@@ -12,7 +12,7 @@ const Header = () => {
       <div className="container mx-auto">
         <div className="flex flex-row flex-nowrap w-full justify-between align-middle">
           <Link href="../">
-            <h1 className="cursor-pointer font-black text-3xl">
+            <h1 className="text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-sky-600 to-sky-500 dark:from-sky-500 dark:via-sky-400 dark:to-sky-300 cursor-pointer">
               Bíblia Online
             </h1>
           </Link>

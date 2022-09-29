@@ -1,5 +1,6 @@
 import type { NextPage } from "next";
 import Link from "next/link";
+import HeroSection from "../components/HeroSection";
 
 interface Book {
   name: string;
@@ -12,7 +13,8 @@ interface Book {
 const Home: NextPage = ({ books }: any) => {
   return (
     <>
-      <h1 className="text-3xl font-bold underline">Biblia Online</h1>
+      <HeroSection />
+
       <h2 className="text-2xl font-bold">Velho Testamento</h2>
       <ul>
         {books.map((book: Book) => {
