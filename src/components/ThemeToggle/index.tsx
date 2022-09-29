@@ -21,7 +21,7 @@ const ThemeToggle = () => {
           viewBox="0 0 24 24"
           stroke-width="1.5"
           stroke="currentColor"
-          className="w-6 h-6"
+          className="w-5 h-5"
         >
           <path
             stroke-linecap="round"
@@ -36,7 +36,7 @@ const ThemeToggle = () => {
   return (
     <button
       onClick={() => setTheme("dark")}
-      className="bg-gray-300 text-gray-600 hover:bg-gray-500 hover:text-gray-300 transition py-2 px-2 rounded-full "
+      className="bg-gray-300 text-gray-600 hover:bg-gray-400 hover:text-gray-900 transition py-2 px-2 rounded-full "
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -44,7 +44,7 @@ const ThemeToggle = () => {
         viewBox="0 0 24 24"
         stroke-width="1.5"
         stroke="currentColor"
-        className="w-6 h-6"
+        className="w-5 h-5"
       >
         <path
           stroke-linecap="round"

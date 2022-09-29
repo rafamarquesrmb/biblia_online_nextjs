@@ -5,10 +5,10 @@
 @layer base {
   body {
     @apply w-full
-      bg-gray-50
+      bg-amber-50
       dark:bg-gray-900
-      text-gray-900
-      dark:text-gray-50
+      text-black
+      dark:text-amber-50
       transition-colors;
   }
 }
