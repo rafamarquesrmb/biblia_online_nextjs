@@ -1,5 +1,6 @@
 import type { NextPage } from "next";
 import Link from "next/link";
+import ChapterSection from "../../../components/ChapterSection";
 
 interface BookProps {
   name: string;
@@ -15,7 +16,7 @@ interface ChapterParams {
     chapter: string;
   };
 }
-interface VerseProps {
+export interface VerseProps {
   number: number;
   text: string;
 }
@@ -34,27 +35,20 @@ const Chapter: NextPage<ChapterPageProps> = ({
   chapter,
 }: ChapterPageProps) => {
   return (
-    <>
-      <h1 className="text-3xl font-bold underline">Biblia Online</h1>
-      <h2>
-        {book.name} - Capítulo {chapter.number}
-      </h2>
-      {verses.map((verse) => {
-        return (
-          <div key={verse.number}>
-            <span>
-              <span className="text-bold">{verse.number}.</span> {verse.text}
-            </span>
-          </div>
-        );
-      })}
+    <div>
+      <ChapterSection
+        title={book.name}
+        chapterNumber={chapter.number}
+        verses={verses}
+      />
+
       {chapter.number <= book.chapters && chapter.number > 1 ? (
         <Link href={`/${book.abbrev.pt}/${chapter.number - 1}`}>Anterior</Link>
       ) : null}
       {chapter.number < book.chapters ? (
         <Link href={`/${book.abbrev.pt}/${chapter.number + 1}`}>Próximo</Link>
       ) : null}
-    </>
+    </div>
   );
 };
 
