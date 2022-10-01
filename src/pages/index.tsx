@@ -1,5 +1,4 @@
 import type { NextPage } from "next";
-import Link from "next/link";
 import BooksSection from "../components/BooksSection";
 import HeroSection from "../components/HeroSection";
 import { BookProps } from "../components/BooksSection";

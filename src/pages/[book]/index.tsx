@@ -1,5 +1,5 @@
 import type { NextPage } from "next";
-import Link from "next/link";
+import BookSection from "../../components/BookSection";
 
 interface BooksParams {
   abbrev: {
@@ -13,37 +13,15 @@ interface BookProps {
   name: string;
   testament: string;
 }
-interface BookPageProps {
+export interface BookPageProps {
   abbrev: string;
   book: BookProps;
 }
 
 const Book: NextPage<BookPageProps> = ({ abbrev, book }) => {
-  const chaptersList: number[] = [];
-
-  for (let i = 1; i <= book.chapters; i++) {
-    chaptersList.push(i);
-  }
-
   return (
     <>
-      <h1 className="text-3xl font-bold underline">Biblia Online</h1>
-      <h2 className="text-2xl font-bold">{book.name}</h2>
-      <p className="text-sm">Capítulos: {book.chapters.toString()}</p>
-      <p className="text-sm">
-        Testamento:{" "}
-        {book.testament === "NT" ? "Novo Testamento" : "Velho Testamento"}
-      </p>
-      <p className="text-sm">Grupo: {book.group}</p>
-      <div className="container">
-        {chaptersList.map((chapter) => {
-          return (
-            <Link key={chapter} href={`${abbrev}/${chapter}`}>
-              {chapter}
-            </Link>
-          );
-        })}
-      </div>
+      <BookSection book={book} abbrev={abbrev} />
     </>
   );
 };
