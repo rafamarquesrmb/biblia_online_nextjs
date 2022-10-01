@@ -36,7 +36,7 @@ const ThemeToggle = () => {
   return (
     <button
       onClick={() => setTheme("dark")}
-      className="bg-gray-300 text-gray-600 hover:bg-gray-400 hover:text-gray-900 transition py-2 px-2 rounded-full "
+      className="bg-amber-100 text-gray-600 hover:bg-gray-900 hover:text-amber-50 transition py-2 px-2 rounded-full "
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"

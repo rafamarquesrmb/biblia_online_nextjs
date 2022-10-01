@@ -4,7 +4,7 @@ import ThemeToggle from "../ThemeToggle";
 const Header = () => {
   const navigationsLinks: Array<{ label: string; path: string }> = [
     { label: "Página Inicial", path: "../" },
-    { label: "Sobre", path: "../about" },
+    // { label: "Sobre", path: "../about" },
   ];
 
   return (
