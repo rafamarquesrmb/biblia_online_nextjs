@@ -1,6 +1,6 @@
 import type { NextPage } from "next";
-import Link from "next/link";
 import ChapterSection from "../../../components/ChapterSection";
+import NavigationButtons from "../../../components/NavigationButtons";
 
 interface BookProps {
   name: string;
@@ -42,12 +42,12 @@ const Chapter: NextPage<ChapterPageProps> = ({
         verses={verses}
       />
 
-      {chapter.number <= book.chapters && chapter.number > 1 ? (
-        <Link href={`/${book.abbrev.pt}/${chapter.number - 1}`}>Anterior</Link>
-      ) : null}
-      {chapter.number < book.chapters ? (
-        <Link href={`/${book.abbrev.pt}/${chapter.number + 1}`}>Próximo</Link>
-      ) : null}
+      <NavigationButtons
+        chapterNumber={chapter.number}
+        totalChapters={book.chapters}
+        abbrev={book.abbrev.pt}
+        bookTitle={book.name}
+      />
     </div>
   );
 };
