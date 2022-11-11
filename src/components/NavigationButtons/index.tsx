@@ -18,7 +18,7 @@ const NavigationButtons = ({
       <div className="container mx-auto max-w-lg pb-4 flex flex-nowrap justify-between">
         {chapterNumber <= totalChapters && chapterNumber > 1 ? (
           <Link href={`/${abbrev}/${chapterNumber - 1}`}>
-            <span className="text-gray-900 dark:text-sky-500  text-center w-full px-2 py-1 text-lg font-medium  border border-gray-900 dark:border-sky-500 hover:border-sky-500  rounded sm:w-auto hover:text-amber-50 dark:hover:text-gray-900 hover:bg-gradient-to-r from-sky-400 via-sky-500 to-blue-600 focus:outline-none cursor-pointer focus:ring flex flex-row justify-center align-middle items-center gap-2">
+            <span className="text-gray-900 dark:text-sky-500  text-center w-full px-2 py-1 text-lg font-medium  border border-gray-900 dark:border-sky-500 hover:border-sky-500  rounded sm:w-full hover:text-amber-50 dark:hover:text-gray-900 hover:bg-gradient-to-r from-sky-400 via-sky-500 to-blue-600 focus:outline-none cursor-pointer focus:ring flex flex-row justify-center align-middle items-center gap-2">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -43,7 +43,7 @@ const NavigationButtons = ({
         <div className="w-2 gap-2"></div>
         {chapterNumber < totalChapters ? (
           <Link href={`/${abbrev}/${chapterNumber + 1}`}>
-            <span className="text-gray-900 dark:text-sky-500  text-center w-full px-2 py-1 text-lg font-medium  border border-gray-900 dark:border-sky-500 hover:border-sky-500  rounded sm:w-auto hover:text-amber-50 dark:hover:text-gray-900 hover:bg-gradient-to-r from-sky-400 via-sky-500 to-blue-600 focus:outline-none cursor-pointer focus:ring flex flex-row justify-center align-middle items-center gap-2">
+            <span className="text-gray-900 dark:text-sky-500  text-center w-full px-2 py-1 text-lg font-medium  border border-gray-900 dark:border-sky-500 hover:border-sky-500  rounded sm:w-full hover:text-amber-50 dark:hover:text-gray-900 hover:bg-gradient-to-r from-sky-400 via-sky-500 to-blue-600 focus:outline-none cursor-pointer focus:ring flex flex-row justify-center align-middle items-center gap-2">
               {`${bookTitle} ${chapterNumber + 1}`}
               <svg
                 xmlns="http://www.w3.org/2000/svg"
